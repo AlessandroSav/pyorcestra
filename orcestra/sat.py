@@ -218,7 +218,7 @@ class SattrackLoader:
         return df.loc[df.lat.notna()].set_index("time").to_xarray()
 
 
-def goes_snapshot(time: str, layer_type: str, folder_path: str = None):
+def goes_snapshot(time: str, layer_type: str,bbox="5,-60,20,-40", folder_path: str = None):
     """
     Downloads a GOES snapshot from NASA Worldview and saves it to a file.
 
@@ -231,9 +231,11 @@ def goes_snapshot(time: str, layer_type: str, folder_path: str = None):
         layer = "GOES-East_ABI_GeoColor"
     elif layer_type == "inf":
         layer = "GOES-East_ABI_Band13_Clean_Infrared"
+    elif layer_type == "r_vis":
+        layer = "GOES-East_ABI_Band2"
     else:
         raise ValueError(
-            "Invalid option for layer. Use 'vis' for visible or 'inf' for infrared."
+            "Invalid option for layer. Use 'vis' for visible or 'inf', or 'r_vis' for infrared."
         )
 
     bbox = "5,-60,20,-40"
