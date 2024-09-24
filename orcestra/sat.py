@@ -232,10 +232,10 @@ def goes_snapshot(time: str, layer_type: str,bbox="5,-60,20,-40", folder_path: s
     elif layer_type == "inf":
         layer = "GOES-East_ABI_Band13_Clean_Infrared"
     elif layer_type == "r_vis":
-        layer = "GOES-East_ABI_Band2"
+        layer = "GOES-East_ABI_Band2_Red_Visible_1km"
     else:
         raise ValueError(
-            "Invalid option for layer. Use 'vis' for visible or 'inf', or 'r_vis' for infrared."
+            "Invalid option for layer. Use 'vis' or 'r_vis' for visible or 'inf' for infrared."
         )
 
     bbox = "5,-60,20,-40"
